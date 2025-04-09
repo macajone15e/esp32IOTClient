@@ -3,3 +3,4 @@
 extern Timezone timeZone;
 void setupNTP();
 void loopNTP();
+String getTimestamp();

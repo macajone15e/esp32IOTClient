@@ -20,7 +20,7 @@ void loop() {
   loopSensors();
 
   if(isSensorsChange){
-    mqttPublish("Sensors", generateJson(getClientId(), timeZone.dateTime("YmdHis"), temperature, altitude, pressure));
+    mqttPublish("Sensors", generateJson(getClientId(), getTimestamp(), temperature, altitude, pressure));
     isSensorsChange = false;
   }
 }

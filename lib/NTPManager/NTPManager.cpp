@@ -11,8 +11,10 @@ WiFiUDP ntpUDP;
 Timezone timeZone;
 bool ntpOk = false;
 
-void setupNTP() {
-  if (WiFi.status() != WL_CONNECTED) {
+void setupNTP()
+{
+  if (WiFi.status() != WL_CONNECTED)
+  {
     Serial.print("/!\ NTP: No WiFi");
     return;
   }
@@ -26,10 +28,18 @@ void setupNTP() {
   ntpOk = true;
 }
 
-void loopNTP() {
-  if (!ntpOk) {
+void loopNTP()
+{
+  if (!ntpOk)
+  {
     setupNTP();
-    if (!ntpOk) return;
+    if (!ntpOk)
+      return;
   }
   events();
+}
+
+String getTimestamp()
+{
+  return timeZone.dateTime("YmdHis");
 }
